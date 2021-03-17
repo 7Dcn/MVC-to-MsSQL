@@ -1,0 +1,33 @@
+﻿@using MVC_FormPost_Uygulama1.Models
+@model CategoryVM
+@{
+	ViewBag.Title = "Add";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add</h2>
+
+@using (Html.BeginForm("Save", "Category", FormMethod.Post))
+{
+	<div class="input-group mb-3">
+		<div class="input-group-prepend">
+			<span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+		</div>
+		@*<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">*@
+
+		@Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+	</div>
+
+	<div class="input-group mb-3">
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="inputGroup-sizing-default">Description</span>
+			</div>
+			@*<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">*@
+
+			@Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+		</div>
+	</div>
+
+	<input type="submit" value="Save" />
+}
